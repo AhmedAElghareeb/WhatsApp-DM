@@ -1,11 +1,14 @@
+import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:whatsapp_messaging/observer.dart';
 import 'package:whatsapp_messaging/views/home.dart';
 
-void main() {
-  runApp(
-    const WhatsApp(),
-  );
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = MyBlocObserver();
+  await ScreenUtil.ensureScreenSize();
+  runApp(const WhatsApp());
 }
 
 class WhatsApp extends StatelessWidget {

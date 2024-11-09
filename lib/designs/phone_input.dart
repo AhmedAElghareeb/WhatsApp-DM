@@ -48,7 +48,7 @@ class PhoneFieldWidget extends StatelessWidget {
               fontSize: 16.sp,
               fontWeight: FontWeight.w500,
               height: 1.5,
-color: Colors.white,
+              color: Colors.white,
               overflow: TextOverflow.ellipsis,
             ),
             textStyle: TextStyle(
@@ -93,7 +93,8 @@ color: Colors.white,
     );
   }
 
-  OutlineInputBorder _border(context) => OutlineInputBorder(
+  OutlineInputBorder _border(context) =>
+      OutlineInputBorder(
         borderRadius: BorderRadius.circular(8.r),
         borderSide: BorderSide(color: const Color(0xff4D5F7A)),
       );
