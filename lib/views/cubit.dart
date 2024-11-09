@@ -15,7 +15,6 @@ class HomeCubit extends Cubit<HomeState> {
   final FocusNode phoneFocus = FocusNode();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  String url = '';
 
   CountryCode selected = CountryCode(
     code: 'EG',
@@ -45,9 +44,8 @@ class HomeCubit extends Cubit<HomeState> {
           backgroundColor: Colors.red,
         ));
       } else {
-        launchUrlString(
-            "https://wa.me/${selected.dialCode}${phoneController.text}");
-        emit(HomeSuccessState());
+launchUrlString("https://wa.me/${selected.dialCode}${phoneController.text}");
+        phoneController.clear();
       }
     }
   }
