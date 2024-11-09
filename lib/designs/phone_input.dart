@@ -48,6 +48,7 @@ class PhoneFieldWidget extends StatelessWidget {
               fontSize: 16.sp,
               fontWeight: FontWeight.w500,
               height: 1.5,
+color: Colors.white,
               overflow: TextOverflow.ellipsis,
             ),
             textStyle: TextStyle(
