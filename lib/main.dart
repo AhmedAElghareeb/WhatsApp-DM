@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'views/home.dart';
-
-
+import 'package:whatsapp_messaging/views/home.dart';
 
 void main() {
-  runApp(const MyApp(),);
+  runApp(
+    const WhatsApp(),
+  );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class WhatsApp extends StatelessWidget {
+  const WhatsApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,26 +21,22 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          appBarTheme: const AppBarTheme(
-            backgroundColor: Color(
-              0xff25D366,
-            ),
-          ),
+          dialogBackgroundColor: Colors.black,
+          textTheme: TextTheme(bodyMedium: TextStyle(color: Colors.white)),
           filledButtonTheme: FilledButtonThemeData(
             style: OutlinedButton.styleFrom(
-                minimumSize: Size(250.w, 50.h,),
-                backgroundColor: const Color(
-                  0xff25D366,
-                ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadiusDirectional.circular(
-                    10.r,
-                  ),
-                ),
-                textStyle: TextStyle(
-                  fontSize: 20.sp,
-                  fontWeight: FontWeight.bold,
-                )
+              fixedSize: Size(
+                250.w,
+                60.h,
+              ),
+              backgroundColor: const Color(0xff25D366),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadiusDirectional.circular(10.r),
+              ),
+              textStyle: TextStyle(
+                fontSize: 20.sp,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),
