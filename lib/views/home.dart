@@ -40,7 +40,7 @@ class Home extends StatelessWidget {
                         Button(
                           text: "Message Number",
                           isLoading: state is HomeLoadingState,
-                          onTap: () => cubit.launchUrl(context),
+                          onTap: () => cubit.confirm(context),
                         ),
                       ],
                     ),

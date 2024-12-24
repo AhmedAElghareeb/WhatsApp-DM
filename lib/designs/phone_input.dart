@@ -52,7 +52,7 @@ class PhoneFieldWidget extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
             textStyle: TextStyle(
-              fontSize: 14.sp,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w500,
               height: 1.5,
               color: Colors.white,
@@ -69,7 +69,7 @@ class PhoneFieldWidget extends StatelessWidget {
               ),
               hintText: 'Search for your Country Code',
               hintStyle: TextStyle(
-                fontSize: 14.sp,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.w500,
                 height: 1.5,
                 color: Colors.white,

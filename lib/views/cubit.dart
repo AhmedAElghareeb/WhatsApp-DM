@@ -22,85 +22,37 @@ class HomeCubit extends Cubit<HomeState> {
     flagUri: 'flags/eg.png',
   );
 
+  void confirm(BuildContext context) async {
+    await launchUrl(context);
+  }
+
   void changeCountry(CountryCode countryCode) {
     selected = countryCode;
     emit(HomeSuccessState());
   }
 
   Future<void> launchUrl(BuildContext context) async {
+    emit(HomeLoadingState());
     phoneFocus.unfocus();
     if (formKey.currentState!.validate()) {
       if (phoneController.text.isEmpty) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(
-            "Please Fill Phone Field!!",
+            "Please Write The Phone Number!!!",
             style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.bold),
           ),
           behavior: SnackBarBehavior.floating,
           backgroundColor: Colors.red,
         ));
+        emit(HomeFailedState());
       } else {
-        final phone = "${selected.dialCode}${phoneController.text}";
-        final whatsappUrl = "https://wa.me/$phone";
-        final whatsappBusinessUrl = "https://wa.me/$phone?app_absent=1";
-        emit(HomeLoadingState());
-        try {
-          bool launched = await launchUrlString(
-            whatsappUrl,
-            mode: LaunchMode.externalApplication,
-          );
-          if (!launched) {
-            launched = await launchUrlString(
-              whatsappBusinessUrl,
-              mode: LaunchMode.externalApplication,
-            );
-          }
-          if (!launched) {
-            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-              content: Text(
-                "Neither WhatsApp nor WhatsApp Business is installed.",
-                style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.bold),
-              ),
-              behavior: SnackBarBehavior.floating,
-              backgroundColor: Colors.red,
-            ));
-          } else {
-            phoneController.clear();
-            emit(HomeSuccessState());
-          }
-        } catch (e) {
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content: Text(
-              "An error occurred: $e",
-              style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.bold),
-            ),
-            behavior: SnackBarBehavior.floating,
-            backgroundColor: Colors.red,
-          ));
-        }
+        await launchUrlString(
+            "https://wa.me/${selected.dialCode}${phoneController.text}");
+        emit(HomeSuccessState());
       }
     }
+    phoneController.clear();
   }
-
-  // Future<void> launchUrl(BuildContext context) async {
-  //   phoneFocus.unfocus();
-  //   if (formKey.currentState!.validate()) {
-  //     if (phoneController.text.isEmpty) {
-  //       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-  //         content: Text(
-  //           "Please Fill Phone Field!!",
-  //           style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.bold),
-  //         ),
-  //         behavior: SnackBarBehavior.floating,
-  //         backgroundColor: Colors.red,
-  //       ));
-  //     } else {
-  //       await launchUrlString(
-  //           "https://wa.me/${selected.dialCode}${phoneController.text}");
-  //       phoneController.clear();
-  //     }
-  //   }
-  // }
 
   @override
   Future<void> close() {

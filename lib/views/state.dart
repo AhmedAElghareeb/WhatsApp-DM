@@ -7,3 +7,5 @@ class HomeInitState extends HomeState {}
 class HomeSuccessState extends HomeState {}
 
 class HomeLoadingState extends HomeState {}
+
+class HomeFailedState extends HomeState {}
