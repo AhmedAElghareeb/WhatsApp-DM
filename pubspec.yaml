@@ -1,6 +1,6 @@
 name: whatsapp_messaging
 
-description: "A new Flutter project."
+description: "WhatsApp Direct Messaging project."
 
 publish_to: 'none'
 
@@ -23,13 +23,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-  flutter_launcher_icons: ^0.13.1
-
-flutter_launcher_icons:
-  android: true
-  ios: true
-  image_path: "assets/logo.png"
 
   flutter_lints: ^2.0.0
 
