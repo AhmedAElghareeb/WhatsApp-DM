@@ -25,7 +25,7 @@ class WhatsApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           dialogBackgroundColor: Colors.black,
-          textTheme: TextTheme(bodyMedium: TextStyle(color: Colors.white)),
+          textTheme: const TextTheme(bodyMedium: TextStyle(color: Colors.white)),
           filledButtonTheme: FilledButtonThemeData(
             style: OutlinedButton.styleFrom(
               fixedSize: Size(
@@ -43,7 +43,7 @@ class WhatsApp extends StatelessWidget {
             ),
           ),
         ),
-        home: Home(),
+        home: const Home(),
       ),
     );
   }
