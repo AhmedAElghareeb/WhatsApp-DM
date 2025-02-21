@@ -12,3 +12,8 @@ A Flutter project which allow user to insert any phone number with country code 
   <img src="https://github.com/user-attachments/assets/f55dacb2-6b57-436e-a010-a4676740d7ae" alt="Image 3" width="300"/>
   <img src="https://github.com/user-attachments/assets/24dc28c7-0bd9-47d6-93a5-72b353a15fbc" alt="Image 3" width="300"/>
 </p>
+
+## storePassword=123456
+## keyPassword=123456
+## keyAlias=release
+## storeFile=D:/GihubProjects/WhatasAppMessaging/android/release-key.jks

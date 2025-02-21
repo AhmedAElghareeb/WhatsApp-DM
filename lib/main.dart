@@ -1,50 +1,32 @@
-import 'package:bloc/bloc.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:whatsapp_messaging/observer.dart';
-import 'package:whatsapp_messaging/views/home.dart';
+import 'package:whatsapp_messaging/my_observer.dart';
+import 'package:whatsapp_messaging/src/app.dart';
+import 'package:whatsapp_messaging/src/core/helpers/locale_helper.dart';
+import 'package:whatsapp_messaging/src/locator.dart';
+import 'package:whatsapp_messaging/src/theme/global_theme_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
   await ScreenUtil.ensureScreenSize();
-  runApp(const WhatsApp());
-}
-
-class WhatsApp extends StatelessWidget {
-  const WhatsApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(
-        400,
-        900,
+  await setupLocator();
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  Locale savedLocale = await EasyLocalizationHelper.getSavedLocale();
+  runApp(
+    EasyLocalization(
+      supportedLocales: const [Locale('en'), Locale('ar')],
+      path: 'assets/transalations',
+      fallbackLocale: const Locale('ar'),
+      startLocale: savedLocale,
+      saveLocale: true,
+      child: BlocProvider(
+        create: (context) => GlobalThemeCubit(),
+        child: const DirectChattingApp(),
       ),
-      builder: (context, child) => MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          dialogBackgroundColor: Colors.black,
-          textTheme: const TextTheme(bodyMedium: TextStyle(color: Colors.white)),
-          filledButtonTheme: FilledButtonThemeData(
-            style: OutlinedButton.styleFrom(
-              fixedSize: Size(
-                250.w,
-                60.h,
-              ),
-              backgroundColor: const Color(0xff25D366),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadiusDirectional.circular(10.r),
-              ),
-              textStyle: TextStyle(
-                fontSize: 20.sp,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ),
-        home: const Home(),
-      ),
-    );
-  }
+    ),
+  );
 }

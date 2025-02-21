@@ -30,7 +30,7 @@ if (keystorePropertiesFile.exists()) {
 
 
 android {
-    namespace "com.example.whatsapp_messaging"
+    namespace "com.ahmedaelghareeb.whatsapp_messaging"
     compileSdkVersion 34
     ndkVersion flutter.ndkVersion
 
@@ -53,7 +53,7 @@ android {
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         minSdkVersion 21
-        targetSdkVersion 34
+        targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
