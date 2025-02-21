@@ -24,9 +24,8 @@ void main() async {
       startLocale: savedLocale,
       saveLocale: true,
       child: BlocProvider(
-        create: (context) => GlobalThemeCubit(),
-        child: const DirectChattingApp(),
-      ),
+          create: (context) => GlobalThemeCubit(),
+          child: const DirectChattingApp()),
     ),
   );
 }
