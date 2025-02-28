@@ -36,7 +36,7 @@ class PhoneFieldWidget extends StatelessWidget {
       focusNode: focusNode,
       keyboardType: TextInputType.phone,
       readOnly: readOnly ?? false,
-      suffixIcon: Stack(
+      prefixIcon: Stack(
         alignment: AlignmentDirectional.centerEnd,
         children: [
           CountryCodePicker(

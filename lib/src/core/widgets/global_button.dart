@@ -1,5 +1,6 @@
 import 'package:async_button_handler/async_button_handler.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:whatsapp_messaging/src/core/utils/app_styles.dart';
 
 class ButtonWidget<T> extends StatelessWidget {
@@ -55,13 +56,15 @@ class ButtonWidget<T> extends StatelessWidget {
       onPressed: onPressed,
       style: ButtonStyle(
         tapTargetSize: tapTargetSize,
-        minimumSize: minimumSize != null
+        minimumSize: (minimumSize != null)
             ? WidgetStateProperty.all<Size>(
-                minimumSize ?? Size(double.infinity, 52))
+                minimumSize ?? Size(double.infinity, 50.h),
+              )
             : null,
-        fixedSize: fixedSize != null
+        fixedSize: (fixedSize != null)
             ? WidgetStateProperty.all<Size>(
-                fixedSize ?? Size(double.infinity, 52))
+                fixedSize ?? Size(double.infinity, 50.h),
+              )
             : null,
         elevation: WidgetStateProperty.all<double?>(elevation ?? 0),
         shadowColor:
@@ -82,8 +85,8 @@ class ButtonWidget<T> extends StatelessWidget {
         padding: WidgetStatePropertyAll(padding ?? EdgeInsets.zero),
       ),
       loadingChild: SizedBox(
-        height: 32,
-        width: 32,
+        height: 32.h,
+        width: 32.w,
         child: loadingWidget ??
             CircularProgressIndicator(
               valueColor:

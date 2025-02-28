@@ -29,6 +29,7 @@ class TextFormFieldWidget extends StatelessWidget {
     this.maxLines = 1,
     this.enableSuffixPadding = true,
     this.labelSpace,
+    this.iconWidget,
   });
 
   final String label, hint;
@@ -48,6 +49,7 @@ class TextFormFieldWidget extends StatelessWidget {
   final bool enableSuffixPadding;
 
   final double? labelSpace;
+  final Widget? iconWidget;
 
   @override
   Widget build(BuildContext context) {
@@ -107,6 +109,7 @@ class TextFormFieldWidget extends StatelessWidget {
             errorBorder: _border(context),
             focusedErrorBorder: _border(context),
             disabledBorder: _border(context),
+            icon: iconWidget,
           ),
         ),
         if (subLabel != null) SizedBox(height: 4.h),

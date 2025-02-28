@@ -2,9 +2,10 @@
   "language": "English",
   "home": "Home",
   "phone": "Phone Number",
-  "search" : "Search",
-  "selectCountry" : "Select Country Code",
-  "continue" : "Continue To Chat",
-  "phone_empty" : "Please Enter Phone Number",
-  "phone_invalid" : "Please Enter Valid Phone Number"
+  "search": "Search",
+  "selectCountry": "Select Country Code",
+  "continue": "Continue To Whatsapp Chat",
+  "continueToTelegram": "Continue To Telegram Chat",
+  "phone_empty": "Please Enter Phone Number",
+  "phone_invalid": "*Please Enter Valid Phone Number"
 }

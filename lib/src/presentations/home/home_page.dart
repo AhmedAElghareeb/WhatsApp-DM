@@ -68,7 +68,7 @@ class HomePage extends StatelessWidget {
                   ),
                   SizedBox(height: 30.h),
                   ButtonWidget<Future<void>>(
-                    onPressed: () async => cubit.launch(context),
+                    onPressed: () async => cubit.launchToWhatsApp(context),
                     title: 'continue'.tr(),
                     borderRadius: 10,
                     backgroundColor: (context.select((GlobalThemeCubit cubit) =>
@@ -78,6 +78,21 @@ class HomePage extends StatelessWidget {
                     fontColor: (context.select((GlobalThemeCubit cubit) =>
                             cubit.state == ThemeModeType.dark))
                         ? AppColors.blackColor
+                        : null,
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  ),
+                  SizedBox(height: 15.h),
+                  ButtonWidget<Future<void>>(
+                    onPressed: () async => cubit.launchToTelegram(context),
+                    title: 'continueToTelegram'.tr(),
+                    borderRadius: 10,
+                    backgroundColor: (context.select((GlobalThemeCubit cubit) =>
+                            cubit.state == ThemeModeType.dark))
+                        ? AppColors.greyColor800
+                        : AppColors.lightSecondaryColor,
+                    fontColor: (context.select((GlobalThemeCubit cubit) =>
+                            cubit.state == ThemeModeType.dark))
+                        ? AppColors.whiteColor
                         : null,
                     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   ),

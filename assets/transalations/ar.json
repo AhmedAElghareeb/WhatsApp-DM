@@ -4,7 +4,8 @@
   "phone" : "رقم الهاتف",
   "search" : "إبحث",
   "selectCountry" : "إختر كود الدولة",
-  "continue" : "تواصل مباشر",
+  "continue" : "تواصل على الواتساب",
+  "continueToTelegram" : "تواصل على تليجرام",
   "phone_empty" : "الرجاء إدخال رقم الهاتف",
-  "phone_invalid" : "الرجاء إدخال رقم هاتف صحيح"
+  "phone_invalid" : "*الرجاء إدخال رقم هاتف صحيح"
 }

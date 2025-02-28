@@ -30,9 +30,10 @@ class HomeCubit extends Cubit<HomeState> {
     selectedCountryCode = value;
   }
 
-  void launch(BuildContext context) async {
+  void launchToWhatsApp(BuildContext context) async {
     if (formKey.currentState!.validate()) {
       await _launchUrl(context);
+      emit(WhatsAppState());
     }
   }
 
@@ -40,6 +41,20 @@ class HomeCubit extends Cubit<HomeState> {
     phoneFocusNode.unfocus();
     await launchUrlString(
       "https://wa.me/${selectedCountryCode.dialCode}${phoneController.text}",
+    );
+  }
+
+  void launchToTelegram(BuildContext context) async {
+    if (formKey.currentState!.validate()) {
+      await _launchUrlTel(context);
+      emit(TelegramState());
+    }
+  }
+
+  Future<void> _launchUrlTel(BuildContext context) async {
+    phoneFocusNode.unfocus();
+    await launchUrlString(
+      "https://t.me/${selectedCountryCode.dialCode}${phoneController.text}",
     );
   }
 

@@ -41,6 +41,18 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>LSApplicationQueriesSchemes</key>
+    <array>
+    <string>https</string>
+    <string>tel</string>
+    <string>sms</string>
+    <string>whatsapp</string>
+    <string>viber</string>
+    <string>tg</string>
+    <string>itms-beta</string>
+    <string>itms</string>
+    <string>*/*</string>
+    </array>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
