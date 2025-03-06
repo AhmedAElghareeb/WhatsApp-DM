@@ -1,4 +1,4 @@
-# Directed Whatsapp Messages 
+# Direct Chatting 
 
 A Flutter project which allow user to insert any phone number with country code from ddl has many of country codes and the button will direct you to whatsapp that you can chating with this number if the number has a whatsapp else it will show you that the number doesn't exist.
 
@@ -21,8 +21,3 @@ A Flutter project which allow user to insert any phone number with country code 
   
   <img src="https://github.com/user-attachments/assets/ed08c880-bf1d-4ff5-97ee-8359b2d977cf" width="150"/>
 </p>
-
-## storePassword=123456
-## keyPassword=123456
-## keyAlias=release
-## storeFile=D:/GihubProjects/WhatasAppMessaging/android/release-key.jks
